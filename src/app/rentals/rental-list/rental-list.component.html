@@ -1,0 +1,7 @@
+<section class="section-cotnainer" fxLayout="row" fxLayoutAlign="center center">
+  <div class="container" class="flex-layout" fxFlex.md="50%" fxFlex.xl="72" fxLayout="row wrap" fxFlexFill>
+    <div *ngFor="let rental of rentals" class="flex-item" fxFlex.xl="25">
+      <app-rental-list-item [rental]="rental"></app-rental-list-item>
+    </div>
+  </div>
+</section>
