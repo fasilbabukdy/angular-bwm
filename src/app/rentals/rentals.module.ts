@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { HttpClientModule } from '@angular/common/http';
 
 import { MaterialModule } from '../shared/material/material.module';
 import { RentalComponent } from './rental/rental.component';
@@ -12,6 +13,6 @@ import { RentalsRoutingModule } from './rentals-routing.module';
 
 @NgModule({
   declarations: [RentalComponent, RentalListComponent, RentalListItemComponent, SearchComponent, RentalDetailComponent],
-  imports: [CommonModule, MaterialModule, FlexLayoutModule, RentalsRoutingModule]
+  imports: [CommonModule, MaterialModule, FlexLayoutModule, RentalsRoutingModule, HttpClientModule]
 })
 export class RentalsModule {}

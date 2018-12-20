@@ -60,7 +60,8 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "bwm:build:production"
+              "browserTarget": "bwm:build:production",
+              "proxyConfig": "proxy.conf.json"
             }
           }
         },

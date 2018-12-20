@@ -47,6 +47,17 @@ body {
   padding: 0 8px;
   margin-bottom: 12px;
 }
+.grid-layout {
+  display: grid;
+  padding: 0 8px;
+  &.grid-layout-column {
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 1.5rem;
+  }
+  & > .grid-item {
+    margin-bottom: 12px;
+  }
+}
 
 .page-header {
   background-color: mat-color($mat-indigo, 600);
@@ -70,5 +81,29 @@ body {
   }
   .mat-input-element {
     color: mat-color($mat-indigo, A100);
+  }
+}
+
+.rental-list-item {
+  &-card {
+    .mat-card-title {
+      margin-bottom: 8px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      font-size: 1.4rem;
+    }
+    mat-card-subtitle {
+      text-transform: uppercase;
+      &.apartment {
+        color: mat-color($mat-orange, 600);
+      }
+      &.condo {
+        color: mat-color($mat-red, 600);
+      }
+      &.house {
+        color: mat-color($mat-purple, 600);
+      }
+    }
   }
 }

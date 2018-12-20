@@ -2,11 +2,13 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dev = require('./config/dev');
 const rental = require('./routes/rentals.routes');
-const FakeDb = require('./helper/fake-db');
+// const FakeDb = require('./helper/fake-db');
 
 const app = express();
 const server = require('http').createServer(app);
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3000;
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 mongoose.Promise = global.Promise;
 mongoose

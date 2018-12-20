@@ -1,10 +1,12 @@
-<mat-card>
+<mat-card class="rental-list-item-card">
   <img mat-card-image [src]="rental.image" [alt]="rental.title" />
   <!-- <mat-card-header> </mat-card-header> -->
   <mat-card-content>
+    <mat-card-subtitle class="{{ rental.category }}"
+      >{{ rental.shared ? 'Shared' : 'Whole' }} {{ rental.category }} &#183; {{ rental.city }}</mat-card-subtitle
+    >
     <mat-card-title>{{ rental.title }}</mat-card-title>
-    <mat-card-subtitle>{{ rental.category }} &#183; {{ rental.city }}</mat-card-subtitle>
     <p>$ {{ rental.dailyRate }} per Night &#183; Free Cancelation</p>
   </mat-card-content>
-  <mat-card-actions> <button [routerLink]="rental.id" mat-button>More</button> </mat-card-actions>
+  <mat-card-actions> <button color="primary" [routerLink]="rental._id" mat-button>More</button> </mat-card-actions>
 </mat-card>

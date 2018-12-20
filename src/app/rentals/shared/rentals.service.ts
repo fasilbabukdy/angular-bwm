@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Rental } from './rental.model';
 
@@ -6,91 +7,13 @@ import { Rental } from './rental.model';
   providedIn: 'root'
 })
 export class RentalsService {
-  private rentals: Rental[] = [
-    {
-      id: '1',
-      title: 'Center Appartment',
-      city: 'New Your',
-      street: 'Times Sqaure',
-      category: 'appartment',
-      image: 'http://via.placeholder.com/350x200',
-      bedrooms: 3,
-      description: 'very nice appartment',
-      dailyRate: 34,
-      shared: false,
-      createdAt: '24/12/2017'
-    },
-    {
-      id: '2',
-      title: 'Center Appartment',
-      city: 'New Your',
-      street: 'Times Sqaure',
-      category: 'appartment',
-      image: 'http://via.placeholder.com/350x200',
-      bedrooms: 3,
-      description: 'very nice appartment',
-      dailyRate: 34,
-      shared: false,
-      createdAt: '24/12/2017'
-    },
-    {
-      id: '3',
-      title: 'Center Appartment',
-      city: 'New Your',
-      street: 'Times Sqaure',
-      category: 'appartment',
-      image: 'http://via.placeholder.com/350x200',
-      bedrooms: 3,
-      description: 'very nice appartment',
-      dailyRate: 34,
-      shared: false,
-      createdAt: '24/12/2017'
-    },
-    {
-      id: '4',
-      title: 'Center Appartment',
-      city: 'New Your',
-      street: 'Times Sqaure',
-      category: 'appartment',
-      image: 'http://via.placeholder.com/350x200',
-      bedrooms: 3,
-      description: 'very nice appartment',
-      dailyRate: 34,
-      shared: false,
-      createdAt: '24/12/2017'
-    },
-    {
-      id: '5',
-      title: 'Center Appartment',
-      city: 'New Your',
-      street: 'Times Sqaure',
-      category: 'appartment',
-      image: 'http://via.placeholder.com/350x200',
-      bedrooms: 3,
-      description: 'very nice appartment',
-      dailyRate: 34,
-      shared: false,
-      createdAt: '24/12/2017'
-    }
-  ];
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
-  getRentalById(id: string): Observable<Rental> {
-    return new Observable<Rental>(observer => {
-      setTimeout(() => {
-        const foundRental = this.rentals.find(rental => {
-          return rental.id === id;
-        });
-        observer.next(foundRental);
-      }, 500);
-    });
+  getRentalById(id: string): Observable<any> {
+    return this.http.get(`/api/v1/rentals/${id}`);
   }
 
-  public getRentals(): Observable<Rental[]> {
-    return new Observable<Rental[]>(observer => {
-      setTimeout(() => {
-        observer.next(this.rentals);
-      }, 800);
-    });
+  getRentals(): Observable<any> {
+    return this.http.get<any>('/api/v1/rentals');
   }
 }

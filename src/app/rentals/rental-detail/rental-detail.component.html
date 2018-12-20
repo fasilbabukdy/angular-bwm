@@ -1,5 +1,18 @@
 <section class="section-cotnainer" fxLayout="row" fxLayoutAlign="center center">
-  <mat-card *ngIf="rental" class="flex-layout" fxFlex.md="50%" fxFlex.xl="72" fxLayout="row wrap" fxFlexFill>
-    {{ rental.title }}
-  </mat-card>
+  <div fxFlex.md="50%" fxFlex.xl="65" fxLayout="row wrap" fxFlexFill>
+    <div *ngIf="rental" class="grid-layout grid-layout-column">
+      <mat-card class="grid-item"> <img mat-card-image [src]="rental.image" [alt]="rental.title" /> </mat-card>
+      <mat-card class="grid-item"> <img mat-card-image [src]="rental.image" [alt]="rental.title" /> </mat-card>
+      <mat-card class="grid-item">
+        <ul>
+          <li>Title: {{ rental.title | uppercase }}</li>
+          <li>City: {{ rental.city }}</li>
+          <li>Street: {{ rental.street }}</li>
+          <li>Bedrooms: {{ rental.bedrooms }}</li>
+          <li>Description: {{ rental.description }}</li>
+          <li>Shared: {{ rental.shared ? 'Shared' : 'Whole' }} {{ rental.category }}</li>
+        </ul>
+      </mat-card>
+    </div>
+  </div>
 </section>
